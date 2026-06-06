@@ -98,12 +98,12 @@ docs/
 ## 📞 Support
 
 For technical support or questions about this documentation:
-- **Email**: support@sassdoctordentiste.com
+- **Email**: contact@dawebcompany.tn
 - **Documentation Issues**: Create an issue in the project repository
 
 ---
 
-**Last Updated**: January 2024  
+**Last Updated**: June 2026  
 **Version**: 1.0.0  
-**Authors**: Development Team
+**Authors**: Hatem Dridi
 
