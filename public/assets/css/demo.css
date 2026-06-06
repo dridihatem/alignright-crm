@@ -1,0 +1,546 @@
+/*
+* demo.css
+* File include item demo only specific css only
+******************************************************************************/
+
+.menu .app-brand.demo {
+  height: 64px;
+}
+
+.app-brand-logo.demo svg {
+  width: 34px;
+  height: 24px;
+}
+
+.app-brand-text.demo {
+  font-size: 1.375rem;
+}
+
+/* ! For .layout-navbar-fixed added fix padding top to .layout-page */
+/* Default navbar */
+.layout-navbar-fixed .layout-wrapper:not(.layout-without-menu) .layout-page {
+  padding-top: 64px !important;
+}
+.layout-navbar-fixed .layout-wrapper:not(.layout-horizontal):not(.layout-without-menu) .layout-page {
+  padding-top: 72px !important;
+}
+/* Navbar page z-index issue solution */
+.content-wrapper .navbar {
+  z-index: auto;
+}
+
+/*
+* Content
+******************************************************************************/
+
+.demo-blocks > * {
+  display: block !important;
+}
+
+.demo-inline-spacing > * {
+  margin: 1rem 0.375rem 0 0 !important;
+}
+
+/* ? .demo-vertical-spacing class is used to have vertical margins between elements. To remove margin-top from the first-child, use .demo-only-element class with .demo-vertical-spacing class. For example, we have used this class in forms-input-groups.html file. */
+.demo-vertical-spacing > * {
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
+}
+.demo-vertical-spacing.demo-only-element > :first-child {
+  margin-top: 0 !important;
+}
+
+.demo-vertical-spacing-lg > * {
+  margin-top: 1.875rem !important;
+  margin-bottom: 0 !important;
+}
+.demo-vertical-spacing-lg.demo-only-element > :first-child {
+  margin-top: 0 !important;
+}
+
+.demo-vertical-spacing-xl > * {
+  margin-top: 5rem !important;
+  margin-bottom: 0 !important;
+}
+.demo-vertical-spacing-xl.demo-only-element > :first-child {
+  margin-top: 0 !important;
+}
+
+/* Dropdown buttons going out of small screens */
+@media (max-width: 576px) {
+  #dropdown-variation-demo .btn-group .text-truncate {
+    width: 254px;
+    position: relative;
+  }
+  #dropdown-variation-demo .btn-group .text-truncate::after {
+    position: absolute;
+    top: 45%;
+    right: 0.65rem;
+  }
+}
+
+/*
+* Layout demo
+******************************************************************************/
+
+.layout-demo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.layout-demo-placeholder img {
+  width: 900px;
+}
+.layout-demo-info {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/*
+* Beautiful Mobile Menu Styles
+******************************************************************************/
+
+/* Mobile menu toggle button with beautiful styling */
+.layout-menu-toggle {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  /*box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);*/
+  position: relative;
+  overflow: hidden;
+}
+
+.layout-menu-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.layout-menu-toggle:hover::before {
+  left: 100%;
+}
+
+.layout-menu-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.layout-menu-toggle .nav-link {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+.layout-menu-toggle .icon-md {
+  font-size: 1.25rem;
+  color: rgb(23, 23, 23);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon rotation animations */
+.layout-menu-toggle .ti-x.rotate-in {
+  animation: rotateIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.layout-menu-toggle .ti-x.rotate-out {
+  animation: rotateOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(-90deg) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateOut {
+  from {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(90deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Mobile menu styles with beautiful design */
+@media (max-width: 1199.98px) {
+  /* Hide horizontal menu on mobile */
+  .layout-navbar-full .layout-menu-horizontal,
+  .layout-menu-horizontal,
+  .mobile-menu-supported .layout-menu-horizontal {
+    position: fixed;
+    top: 64px; /* Height of navbar */
+    left: -100%;
+    width: 320px;
+    height: calc(100vh - 64px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1030;
+    overflow-y: auto;
+    border-right: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Show menu when open */
+  .layout-navbar-full .layout-menu-horizontal.menu-open,
+  .layout-menu-horizontal.menu-open,
+  .mobile-menu-supported .layout-menu-horizontal.menu-open {
+    left: 0;
+  }
+
+  /* Slide in animation */
+  .layout-menu-horizontal.menu-slide-in {
+    animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Slide out animation */
+  .layout-menu-horizontal.menu-slide-out {
+    animation: slideOutLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOutLeft {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+
+  /* Overlay when menu is open */
+  .layout-wrapper.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1025;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Menu container adjustments */
+  .layout-menu-horizontal .container-xxl {
+    padding: 0;
+    height: 100%;
+  }
+
+  /* Beautiful menu items styling for mobile */
+  .layout-menu-horizontal .menu-inner {
+    padding: 1.5rem 0;
+    display: block !important;
+  }
+
+  /* Mobile menu header styling */
+  .mobile-menu-header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    margin-bottom: 1rem;
+  }
+
+  .mobile-menu-header .avatar {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-menu-header h6 {
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-menu-header small {
+    font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .layout-menu-horizontal .menu-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+    width: 100%;
+    margin: 0.25rem 0;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .layout-menu-horizontal .menu-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Menu item slide in animation */
+  .layout-menu-horizontal .menu-item.menu-item-slide-in {
+    animation: menuItemSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Menu item slide out animation */
+  .layout-menu-horizontal .menu-item.menu-item-slide-out {
+    animation: menuItemSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes menuItemSlideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes menuItemSlideOut {
+    to {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+  }
+
+  .layout-menu-horizontal .menu-link {
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    min-height: 56px;
+    width: 100%;
+    border-radius: 0.75rem;
+    margin: 0 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .layout-menu-horizontal .menu-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .layout-menu-horizontal .menu-link:hover::before {
+    left: 100%;
+  }
+
+  .layout-menu-horizontal .menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .layout-menu-horizontal .menu-item.active .menu-link {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: translateX(8px);
+  }
+
+  .layout-menu-horizontal .menu-item-hover .menu-link {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+  }
+
+  .layout-menu-horizontal .menu-icon {
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+  }
+
+  .layout-menu-horizontal .menu-link:hover .menu-icon {
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .layout-menu-horizontal .menu-item.active .menu-icon {
+    color: white;
+  }
+
+  /* Improve touch targets */
+  .layout-menu-horizontal .menu-link {
+    min-height: 56px;
+    touch-action: manipulation;
+  }
+
+  /* Add focus styles for accessibility */
+  .layout-menu-horizontal .menu-link:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: -2px;
+  }
+
+  /* Hide close button by default */
+  .layout-menu-toggle .ti-x {
+    display: none;
+  }
+
+  /* Show menu button by default */
+  .layout-menu-toggle .ti-menu-2 {
+    display: block;
+  }
+
+  /* When menu is open, show close button and hide menu button */
+  .layout-wrapper.menu-open .layout-menu-toggle .ti-x {
+    display: block;
+  }
+
+  .layout-wrapper.menu-open .layout-menu-toggle .ti-menu-2 {
+    display: none;
+  }
+
+  /* Ensure content doesn't shift when menu opens */
+  .layout-navbar-full .layout-page {
+    margin-left: 0 !important;
+  }
+
+  /* Handle layout-without-menu specifically */
+  .layout-without-menu .layout-menu-horizontal {
+    position: fixed !important;
+    top: 64px !important;
+    left: -100% !important;
+    width: 320px !important;
+    height: calc(100vh - 64px) !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 1030 !important;
+    overflow-y: auto !important;
+    border-right: none !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  .layout-without-menu .layout-menu-horizontal.menu-open {
+    left: 0 !important;
+  }
+
+  /* Custom scrollbar for menu */
+  .layout-menu-horizontal::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .layout-menu-horizontal::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .layout-menu-horizontal::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+
+  .layout-menu-horizontal::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Ensure menu is visible on desktop */
+@media (min-width: 1200px) {
+  .layout-menu-horizontal {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    border-right: none;
+    overflow: visible;
+  }
+
+  .layout-menu-horizontal .menu-inner {
+    display: flex;
+    padding: 0;
+  }
+
+  .layout-menu-horizontal .menu-item {
+    border-bottom: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .layout-menu-horizontal .menu-link {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    color: #566a7f;
+    margin: 0 0.25rem;
+    background: transparent;
+  }
+
+  .layout-menu-horizontal .menu-link:hover {
+    background: rgba(105, 108, 255, 0.1);
+    color: #696cff;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .layout-menu-horizontal .menu-item.active .menu-link {
+    background: #696cff;
+    color: #05b9c7;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(105, 108, 255, 0.3);
+  }
+
+  .layout-menu-horizontal .menu-icon {
+    color: #566a7f;
+  }
+
+  .layout-menu-horizontal .menu-link:hover .menu-icon {
+    color: #696cff;
+  }
+
+  .layout-menu-horizontal .menu-item.active .menu-icon {
+    color: #05b9c7;
+  }
+}
